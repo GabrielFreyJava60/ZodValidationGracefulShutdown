@@ -1,11 +1,12 @@
 import express, { NextFunction, Request, Response } from 'express'
 import morgan from 'morgan'
-import 'dotenv/config'
+import dotenv from 'dotenv'
 import _ from 'lodash'
 import  { EmployeeAlreadyExistsError, EmployeeNotFoundError, persistNow } from '../service/EmployeesServiceMap.ts';
 import { Employee } from '../model/Employee.ts';
 import service from '../service/EmployeesServiceMap.ts';
 import { EmployeeCreateSchema, EmployeeUpdateSchema } from '../model/EmployeeSchema.ts';
+dotenv.config();
 const app = express();
 const {PORT, MORGAN_FORMAT, SKIP_CODE_THRESHOLD} = process.env;
 const port = PORT || 3500;
